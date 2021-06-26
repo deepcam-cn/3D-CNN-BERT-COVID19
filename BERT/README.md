@@ -5,6 +5,7 @@ We use the Pytorch implementation of [Late Temporal Modeling in 3D CNN Architect
 ![BERT](./BERT.png)
 
 ## Dependency 
+Recreate the Pytorch-1.7 Anaconda container enviroment by running conda install --name myenv --file pytorch-1.7.txt  
 
 ## Dataset preparation
 Follow the instructions in preprocessing and segmentation to prepare the dataset 

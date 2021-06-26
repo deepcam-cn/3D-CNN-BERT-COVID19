@@ -1,21 +1,19 @@
 CT Lung Images Segmentation
 ===
-1. CT lung images segmentation implementation using [U-Net : Convolutional Networks for Biomedical Image Segmentation](https://lmb.informatik.uni-freiburg.de/people/ronneber/u-net/). 
+CT lung images segmentation implementation using UNet. 
 
 ![u-net-architecture](img/u-net-architecture.png)
  
-2. CT lung images segmentation implementation using [TernausNet](https://arxiv.org/pdf/1801.05746.pdf).   
-
-![TernausNet-architecture](img/TernausNet-architecture.png)
- 
 Overview
----
+
 ### Data
-Finding and Measuring Lungs in CT Data
-This dataset can be found https://www.kaggle.com/kmader/finding-lungs-in-ct-data.
+1. The Kaggle dataset at https://www.kaggle.com/kmader/finding-lungs-in-ct-data.
+2. The CNBC dataset at http://ncov-ai.big.ac.cn/download
+
 
 ### Pre-Processing
-After importing the image data from the alpha channel, convert unsigned int image to int and resize 64 x 64.
+1. On the Kaggle dataset, after importing the image data from the alpha channel, convert unsigned int image to int and resize 512 x 512
+2. On the CNBC dataset, merge lung field mask, GC lesions and consolidation lesion marks all to the lung field mask.
 
 Requirement
 ---
@@ -24,6 +22,7 @@ Requirement
 * Python packages : numpy, matplotlib, opencv, and so on...
 
 Reference Implementations
+
 ---
 + https://github.com/zhixuhao/unet
 + https://github.com/ternaus/TernausNet

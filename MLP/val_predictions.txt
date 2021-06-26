@@ -1,0 +1,374 @@
+val_covid_ct_scan_0 0 0 0 0 0 0 0 0 0 0 
+val_covid_ct_scan_1 0 0 0 0 0 0 0 0 0 1 
+val_covid_ct_scan_2 0 0 
+val_covid_ct_scan_3 0 0 
+val_covid_ct_scan_4 0 0 0 0 
+val_covid_ct_scan_5 0 0 0 0 0 0 0 0 0 0 
+val_covid_ct_scan_6 0 0 0 0 0 0 0 0 0 0 0 0 
+val_covid_ct_scan_7 0 0 
+val_covid_ct_scan_8 0 0 
+val_covid_ct_scan_9 0 0 0 0 0 1 1 1 0 1 
+val_covid_ct_scan_10 0 0 0 0 0 0 1 1 1 0 0 1 
+val_covid_ct_scan_11 0 0 
+val_covid_ct_scan_12 0 0 
+val_covid_ct_scan_13 0 0 0 0 0 0 0 0 0 0 
+val_covid_ct_scan_14 0 1 
+val_covid_ct_scan_15 0 0 
+val_covid_ct_scan_16 0 0 0 0 0 0 0 0 0 0 0 0 
+val_covid_ct_scan_17 0 0 
+val_covid_ct_scan_18 0 1 1 0 1 1 
+val_covid_ct_scan_19 0 0 0 0 0 0 0 0 
+val_covid_ct_scan_20 0 0 
+val_covid_ct_scan_21 0 0 0 0 0 0 0 0 
+val_covid_ct_scan_22 0 0 
+val_covid_ct_scan_23 0 0 
+val_covid_ct_scan_24 0 0 
+val_covid_ct_scan_25 0 0 0 0 0 0 0 0 0 0 
+val_covid_ct_scan_26 0 0 0 0 0 0 0 1 1 0 0 1 1 1 
+val_covid_ct_scan_27 0 0 
+val_covid_ct_scan_28 0 0 0 0 0 0 0 0 1 0 
+val_covid_ct_scan_29 0 0 0 0 0 0 0 0 0 0 
+val_covid_ct_scan_30 0 1 1 1 1 1 1 1 1 1 1 1 1 1 
+val_covid_ct_scan_31 0 0 
+val_covid_ct_scan_32 0 0 0 0 0 0 1 0 0 0 0 0 
+val_covid_ct_scan_33 0 0 
+val_covid_ct_scan_34 0 0 0 0 0 1 1 1 0 0 
+val_covid_ct_scan_35 0 1 1 1 1 1 1 1 1 1 
+val_covid_ct_scan_36 0 1 1 1 1 1 1 1 1 1 1 1 1 1 
+val_covid_ct_scan_37 0 0 
+val_covid_ct_scan_38 0 1 1 1 1 1 1 1 1 1 1 1 
+val_covid_ct_scan_39 0 1 1 1 
+val_covid_ct_scan_40 0 1 1 1 1 1 
+val_covid_ct_scan_41 0 0 0 0 0 0 0 0 1 0 0 0 0 0 
+val_covid_ct_scan_42 0 0 0 0 0 0 0 0 0 1 1 0 1 1 1 1 1 1 
+val_covid_ct_scan_43 0 0 0 0 0 1 0 0 0 0 
+val_covid_ct_scan_44 0 0 
+val_covid_ct_scan_45 0 0 0 0 0 0 0 1 0 1 1 1 1 0 
+val_covid_ct_scan_46 0 0 0 0 
+val_covid_ct_scan_47 0 0 
+val_covid_ct_scan_48 0 0 1 0 1 1 
+val_covid_ct_scan_49 0 0 0 0 0 0 0 1 1 0 
+val_covid_ct_scan_50 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+val_covid_ct_scan_51 0 0 
+val_covid_ct_scan_52 0 1 1 1 1 1 1 1 
+val_covid_ct_scan_53 0 0 
+val_covid_ct_scan_54 0 0 0 0 0 0 0 1 1 1 1 1 1 0 
+val_covid_ct_scan_55 0 0 0 0 0 0 
+val_covid_ct_scan_56 0 0 
+val_covid_ct_scan_57 0 0 0 0 0 0 0 0 0 0 
+val_covid_ct_scan_58 0 0 
+val_covid_ct_scan_59 0 0 0 0 0 1 1 0 
+val_covid_ct_scan_60 0 1 1 1 1 0 0 1 1 1 
+val_covid_ct_scan_61 0 0 0 0 0 0 0 0 0 0 
+val_covid_ct_scan_62 0 1 1 1 
+val_covid_ct_scan_63 0 0 
+val_covid_ct_scan_64 0 0 0 1 
+val_covid_ct_scan_65 0 0 0 0 0 0 0 1 1 1 1 1 1 1 
+val_covid_ct_scan_66 0 0 0 0 0 0 0 0 0 1 1 1 1 0 0 0 
+val_covid_ct_scan_67 0 0 0 0 0 0 0 0 1 0 0 0 0 0 
+val_covid_ct_scan_68 0 0 0 0 0 1 1 1 
+val_covid_ct_scan_69 0 0 
+val_covid_ct_scan_70 0 0 
+val_covid_ct_scan_71 0 0 0 0 
+val_covid_ct_scan_72 0 0 0 0 0 0 0 0 0 0 
+val_covid_ct_scan_73 0 0 0 0 0 0 0 0 
+val_covid_ct_scan_74 0 0 0 0 0 0 0 0 
+val_covid_ct_scan_75 0 0 
+val_covid_ct_scan_76 0 0 0 0 0 0 1 1 1 0 
+val_covid_ct_scan_77 0 0 0 0 0 0 0 1 0 0 0 0 
+val_covid_ct_scan_78 0 0 0 0 1 0 1 1 
+val_covid_ct_scan_79 0 0 0 0 
+val_covid_ct_scan_80 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+val_covid_ct_scan_81 0 0 
+val_covid_ct_scan_82 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+val_covid_ct_scan_83 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+val_covid_ct_scan_84 0 0 0 0 0 0 0 0 0 0 
+val_covid_ct_scan_85 0 0 0 0 0 0 0 0 0 0 0 0 
+val_covid_ct_scan_86 0 0 0 0 0 1 1 0 1 1 
+val_covid_ct_scan_87 0 0 
+val_covid_ct_scan_88 0 0 
+val_covid_ct_scan_89 0 0 
+val_covid_ct_scan_90 0 1 1 1 1 1 1 1 
+val_covid_ct_scan_91 0 0 0 0 1 0 1 1 
+val_covid_ct_scan_92 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+val_covid_ct_scan_93 0 0 0 0 0 0 0 0 0 0 0 0 
+val_covid_ct_scan_94 0 0 
+val_covid_ct_scan_95 0 0 
+val_covid_ct_scan_96 0 0 0 0 0 0 0 0 0 0 0 0 
+val_covid_ct_scan_97 0 0 
+val_covid_ct_scan_98 0 0 0 0 0 1 1 1 
+val_covid_ct_scan_99 0 0 0 0 0 0 0 0 
+val_covid_ct_scan_100 0 0 
+val_covid_ct_scan_101 0 0 0 0 
+val_covid_ct_scan_102 0 0 0 0 0 0 0 0 
+val_covid_ct_scan_103 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+val_covid_ct_scan_104 0 1 1 1 1 1 1 1 1 1 
+val_covid_ct_scan_105 0 0 0 0 0 0 1 1 1 0 1 1 
+val_covid_ct_scan_106 0 1 1 1 1 1 1 1 1 1 
+val_covid_ct_scan_107 0 0 
+val_covid_ct_scan_108 0 0 0 0 
+val_covid_ct_scan_109 0 0 0 0 
+val_covid_ct_scan_110 0 0 0 1 
+val_covid_ct_scan_111 0 0 0 0 0 1 
+val_covid_ct_scan_112 0 0 0 1 
+val_covid_ct_scan_113 0 0 0 0 0 0 0 0 1 1 
+val_covid_ct_scan_114 0 0 
+val_covid_ct_scan_115 0 0 0 0 0 0 0 0 
+val_covid_ct_scan_116 0 0 0 0 1 0 0 1 
+val_covid_ct_scan_117 0 1 
+val_covid_ct_scan_118 0 0 0 0 0 0 0 1 
+val_covid_ct_scan_119 0 0 0 0 
+val_covid_ct_scan_120 0 0 0 0 0 0 0 1 0 0 1 1 1 1 
+val_covid_ct_scan_121 0 0 
+val_covid_ct_scan_122 0 0 0 0 
+val_covid_ct_scan_123 0 1 
+val_covid_ct_scan_124 0 1 1 1 1 1 1 1 1 1 
+val_covid_ct_scan_125 0 0 1 0 
+val_covid_ct_scan_126 0 0 0 0 
+val_covid_ct_scan_127 0 0 0 0 
+val_covid_ct_scan_128 0 1 1 1 1 1 1 1 
+val_covid_ct_scan_129 0 0 0 0 0 0 0 1 
+val_covid_ct_scan_130 0 0 0 0 
+val_covid_ct_scan_131 0 0 0 1 
+val_covid_ct_scan_132 0 0 0 0 
+val_covid_ct_scan_133 0 0 0 0 0 0 0 0 1 1 
+val_covid_ct_scan_134 0 1 0 1 
+val_covid_ct_scan_135 0 0 
+val_covid_ct_scan_136 0 0 1 0 
+val_covid_ct_scan_137 0 1 0 0 1 1 
+val_covid_ct_scan_138 0 0 0 0 0 0 0 1 
+val_covid_ct_scan_139 0 1 1 1 
+val_covid_ct_scan_140 0 0 0 0 
+val_covid_ct_scan_141 0 0 
+val_covid_ct_scan_142 0 0 0 0 1 0 1 1 1 1 1 1 
+val_covid_ct_scan_143 0 1 1 1 1 1 1 1 
+val_covid_ct_scan_144 0 0 1 0 
+val_covid_ct_scan_145 0 0 0 1 0 0 
+val_covid_ct_scan_146 0 0 0 0 0 0 0 0 1 1 1 1 1 0 1 1 
+val_covid_ct_scan_147 0 0 
+val_covid_ct_scan_148 0 1 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+val_covid_ct_scan_149 0 1 1 1 
+val_covid_ct_scan_150 0 0 0 0 
+val_covid_ct_scan_151 0 0 0 0 
+val_covid_ct_scan_152 0 0 0 0 
+val_covid_ct_scan_153 0 0 0 0 1 1 0 1 1 1 1 1 
+val_covid_ct_scan_154 0 0 
+val_covid_ct_scan_155 0 1 1 1 1 1 1 1 
+val_covid_ct_scan_156 0 1 
+val_covid_ct_scan_157 0 1 
+val_covid_ct_scan_158 0 0 
+val_covid_ct_scan_159 0 0 
+val_covid_ct_scan_160 0 0 
+val_covid_ct_scan_161 0 0 0 0 0 0 
+val_covid_ct_scan_162 0 0 0 0 0 0 
+val_covid_ct_scan_163 0 0 0 0 0 0 0 0 0 0 0 0 
+val_covid_ct_scan_164 0 0 
+val_non-covid_ct_scan_0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_1 0 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_2 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_3 0 1 1 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_4 0 1 1 1 
+val_non-covid_ct_scan_5 0 1 1 1 1 0 1 1 1 1 
+val_non-covid_ct_scan_6 0 1 
+val_non-covid_ct_scan_7 0 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_8 0 1 
+val_non-covid_ct_scan_9 0 1 1 1 1 1 1 0 
+val_non-covid_ct_scan_10 0 1 1 1 1 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_11 0 1 
+val_non-covid_ct_scan_12 0 1 
+val_non-covid_ct_scan_13 0 1 
+val_non-covid_ct_scan_14 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_15 0 1 1 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_16 0 1 
+val_non-covid_ct_scan_17 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_18 0 1 
+val_non-covid_ct_scan_19 0 1 1 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_20 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_21 0 1 1 1 1 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_22 0 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_23 0 1 1 1 1 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_24 0 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_25 0 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_26 0 1 1 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_27 0 1 1 1 1 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_28 0 1 1 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_29 0 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_30 0 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_31 0 1 1 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_32 0 1 1 1 
+val_non-covid_ct_scan_33 0 1 1 1 1 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_34 0 1 1 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_35 0 1 1 1 1 1 1 1 1 1 1 1 1 0 
+val_non-covid_ct_scan_36 0 1 1 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_37 0 1 1 1 1 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_38 0 1 
+val_non-covid_ct_scan_39 0 1 
+val_non-covid_ct_scan_40 0 1 
+val_non-covid_ct_scan_41 0 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_42 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_43 0 1 
+val_non-covid_ct_scan_44 0 1 1 1 
+val_non-covid_ct_scan_45 0 1 1 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_46 0 1 1 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_47 0 1 
+val_non-covid_ct_scan_48 0 1 
+val_non-covid_ct_scan_49 0 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_50 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_51 0 1 
+val_non-covid_ct_scan_52 0 1 
+val_non-covid_ct_scan_53 0 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_54 0 1 
+val_non-covid_ct_scan_55 0 1 
+val_non-covid_ct_scan_56 0 1 
+val_non-covid_ct_scan_57 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 
+val_non-covid_ct_scan_58 0 1 1 1 
+val_non-covid_ct_scan_59 0 1 
+val_non-covid_ct_scan_60 0 1 1 1 
+val_non-covid_ct_scan_61 0 1 1 1 1 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_62 0 1 1 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_63 0 1 
+val_non-covid_ct_scan_64 0 1 1 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_65 0 1 
+val_non-covid_ct_scan_66 0 1 
+val_non-covid_ct_scan_67 0 1 1 1 1 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_68 0 1 
+val_non-covid_ct_scan_69 0 1 
+val_non-covid_ct_scan_70 0 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_71 0 1 1 1 
+val_non-covid_ct_scan_72 0 1 1 1 1 1 1 1 1 0 
+val_non-covid_ct_scan_73 0 1 1 1 1 1 
+val_non-covid_ct_scan_74 0 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_75 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_76 0 1 1 1 
+val_non-covid_ct_scan_77 0 1 1 1 1 1 1 1 1 1 1 1 1 0 
+val_non-covid_ct_scan_78 0 1 
+val_non-covid_ct_scan_79 0 1 1 1 1 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_80 0 1 
+val_non-covid_ct_scan_81 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_82 0 1 
+val_non-covid_ct_scan_83 0 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_84 0 1 
+val_non-covid_ct_scan_85 0 1 
+val_non-covid_ct_scan_86 0 1 
+val_non-covid_ct_scan_87 0 1 
+val_non-covid_ct_scan_88 0 1 1 1 1 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_89 0 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_90 0 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_91 0 1 1 1 
+val_non-covid_ct_scan_92 0 1 1 1 1 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_93 0 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_94 0 1 1 1 
+val_non-covid_ct_scan_95 0 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_96 0 1 
+val_non-covid_ct_scan_97 0 1 
+val_non-covid_ct_scan_98 0 1 1 1 
+val_non-covid_ct_scan_99 0 1 
+val_non-covid_ct_scan_100 0 1 1 1 
+val_non-covid_ct_scan_101 0 1 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_102 0 1 1 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_103 0 1 1 1 1 1 
+val_non-covid_ct_scan_104 0 1 1 1 
+val_non-covid_ct_scan_105 0 1 1 1 
+val_non-covid_ct_scan_106 0 1 1 1 
+val_non-covid_ct_scan_107 0 1 
+val_non-covid_ct_scan_108 0 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_109 0 1 1 1 
+val_non-covid_ct_scan_110 0 1 1 1 
+val_non-covid_ct_scan_111 0 1 
+val_non-covid_ct_scan_112 0 1 
+val_non-covid_ct_scan_113 0 1 
+val_non-covid_ct_scan_114 0 1 
+val_non-covid_ct_scan_115 0 1 
+val_non-covid_ct_scan_116 0 1 
+val_non-covid_ct_scan_117 0 1 
+val_non-covid_ct_scan_118 0 1 1 1 
+val_non-covid_ct_scan_119 0 1 1 1 
+val_non-covid_ct_scan_120 0 1 
+val_non-covid_ct_scan_121 0 1 
+val_non-covid_ct_scan_122 0 1 1 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_123 0 0 0 0 0 1 1 1 0 1 
+val_non-covid_ct_scan_124 0 1 
+val_non-covid_ct_scan_125 0 1 1 0 1 1 
+val_non-covid_ct_scan_126 0 1 1 1 
+val_non-covid_ct_scan_127 0 1 1 1 
+val_non-covid_ct_scan_128 0 1 1 1 
+val_non-covid_ct_scan_129 0 0 
+val_non-covid_ct_scan_130 0 1 1 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_131 0 1 
+val_non-covid_ct_scan_132 0 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_133 0 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_134 0 1 1 1 
+val_non-covid_ct_scan_135 0 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_136 0 1 1 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_137 0 1 1 1 
+val_non-covid_ct_scan_138 0 1 1 1 
+val_non-covid_ct_scan_139 0 1 1 1 
+val_non-covid_ct_scan_140 0 1 1 1 
+val_non-covid_ct_scan_141 0 1 
+val_non-covid_ct_scan_142 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_143 0 0 1 0 
+val_non-covid_ct_scan_144 0 1 1 1 
+val_non-covid_ct_scan_145 0 1 
+val_non-covid_ct_scan_146 0 0 0 0 
+val_non-covid_ct_scan_147 0 1 
+val_non-covid_ct_scan_148 0 1 1 1 
+val_non-covid_ct_scan_149 0 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_150 0 1 
+val_non-covid_ct_scan_151 0 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_152 0 0 1 0 
+val_non-covid_ct_scan_153 0 1 
+val_non-covid_ct_scan_154 0 1 
+val_non-covid_ct_scan_155 0 1 1 1 
+val_non-covid_ct_scan_156 0 0 1 1 1 1 
+val_non-covid_ct_scan_157 0 1 
+val_non-covid_ct_scan_158 0 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_159 0 1 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_160 0 1 1 1 
+val_non-covid_ct_scan_161 0 1 1 1 
+val_non-covid_ct_scan_162 0 1 1 1 
+val_non-covid_ct_scan_163 0 0 
+val_non-covid_ct_scan_164 0 1 1 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_165 0 1 
+val_non-covid_ct_scan_166 0 1 1 1 1 1 
+val_non-covid_ct_scan_167 0 1 1 1 
+val_non-covid_ct_scan_168 0 1 1 1 
+val_non-covid_ct_scan_169 0 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_170 0 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_171 0 1 
+val_non-covid_ct_scan_172 0 1 1 1 
+val_non-covid_ct_scan_173 0 1 1 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_174 0 1 
+val_non-covid_ct_scan_175 0 1 1 1 
+val_non-covid_ct_scan_176 0 1 1 1 
+val_non-covid_ct_scan_177 0 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_178 0 1 
+val_non-covid_ct_scan_179 0 1 1 1 
+val_non-covid_ct_scan_180 0 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_181 0 1 
+val_non-covid_ct_scan_182 0 1 
+val_non-covid_ct_scan_183 0 1 1 1 
+val_non-covid_ct_scan_184 0 1 1 1 
+val_non-covid_ct_scan_185 0 1 1 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_186 0 1 1 1 
+val_non-covid_ct_scan_187 0 1 1 1 
+val_non-covid_ct_scan_188 0 1 1 1 
+val_non-covid_ct_scan_189 0 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_190 0 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_191 0 1 1 1 
+val_non-covid_ct_scan_192 0 1 1 1 
+val_non-covid_ct_scan_193 0 1 1 1 
+val_non-covid_ct_scan_194 0 1 1 1 
+val_non-covid_ct_scan_195 0 1 
+val_non-covid_ct_scan_196 0 1 
+val_non-covid_ct_scan_197 0 1 1 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_198 0 1 
+val_non-covid_ct_scan_199 0 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_200 0 1 1 1 
+val_non-covid_ct_scan_201 0 1 
+val_non-covid_ct_scan_202 0 1 1 1 1 1 1 1 1 1 
+val_non-covid_ct_scan_203 0 1 1 1 
+val_non-covid_ct_scan_204 0 1 
+val_non-covid_ct_scan_205 0 1 
+val_non-covid_ct_scan_206 0 1 
+val_non-covid_ct_scan_207 0 1 
+val_non-covid_ct_scan_208 0 1 1 1 1 1 

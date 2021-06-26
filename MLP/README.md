@@ -14,6 +14,7 @@ python train.py --desc=addSeq_affine --gpu_id=2 --pooling=both --activation=Sigm
 
 Models are saved in directory checkpoint, where the traning and validation accuracies are part of the file name.  
 
-
+### Dependency - Use same enviroment as the BERT 
+Recreate the Pytorch-1.7 Anaconda container enviroment by running conda install --name myenv --file pytorch-1.7.txt
 
 

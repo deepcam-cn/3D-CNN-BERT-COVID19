@@ -21,8 +21,7 @@ Requirement
 * Keras
 * Python packages : numpy, matplotlib, opencv, and so on...
 
-Reference Implementations
-
+### Reference Implementations
 ---
-+ https://github.com/zhixuhao/unet
-+ https://github.com/ternaus/TernausNet
++ https://github.com/IzPerfect/CT-Image-Segmentation
+

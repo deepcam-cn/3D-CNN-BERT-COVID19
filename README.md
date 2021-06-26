@@ -15,3 +15,5 @@ A 3D CNN network with BERT for CT-scan volume classification and embedding featu
 ## MLP
 A simple MLP is trained on the extracted 3D CNN-BERT features. This helps the classification accuracy when there are more than one set of images in a CT-scan volume.  
 
+#License
+The code of EQFace is released under the MIT License. There is no limitation for both academic and commercial usage.

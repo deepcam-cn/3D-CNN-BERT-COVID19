@@ -22,11 +22,8 @@ CT lung images segmentation implementation using UNet.
    Run python segement_train_val.py on training and validation dataset 
    Run python segement_test.py on test dataset 
 
-Requirement
----
-* Python
-* Keras-2.3, Tensorflow-GPU-2.2
-* Python packages : numpy, matplotlib, opencv, and so on...
+### Dependency
+Recreate the Keras-Tensorflow-GPU-2.2 Anaconda container enviroment by running conda install --name myenv --file tf-gpu-2.2.txt
 
 ### Reference Implementations
 ---

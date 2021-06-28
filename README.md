@@ -15,8 +15,6 @@ A 3D CNN network with BERT for CT-scan volume classification and embedding featu
 ## MLP
 A simple MLP is trained on the extracted 3D CNN-BERT features. This helps the classification accuracy when there are more than one set of images in a CT-scan volume.  
 
-## Pre-trained models 
-Download at [google drive](https://drive.google.com/drive/folders/1QFy2pEIX8L8OG-u0MxsAuwgqBS2CRPMb?usp=sharing)
 
 
 ## License

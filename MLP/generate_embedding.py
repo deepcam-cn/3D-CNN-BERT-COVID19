@@ -26,7 +26,6 @@ import pickle,json
 
 import argparse
 
-
 datasetFolder="../BERT/datasets"
 
 sys.path.insert(0, "../BERT/")
@@ -40,10 +39,11 @@ import video_transforms
 
 from arcface import ArcFace 
 
-from utils import RandomResampler, SymmetricalResampler
+from utils import RandomResampler, SymmetricalResampler, SymmetricalSequentialResampler
+
 
 os.environ["CUDA_DEVICE_ORDER"]="PCI_BUS_ID"   
-#os.environ["CUDA_VISIBLE_DEVICES"]="3"
+#os.environ["CUDA_VISIBLE_DEVICES"]="0"
 
 
 model_names = sorted(name for name in models.__dict__
@@ -87,7 +87,7 @@ parser.add_argument('-w', '--window', default=3, type=int, metavar='V',
 parser.add_argument('-v', '--val', dest='window_val', action='store_true',
                     help='Window Validation Selection')
 
-parser.add_argument('--gpu_id',type = int,default=3, help='foo help')
+parser.add_argument('--gpu_id',type = int,default=0, help='foo help')
 
 parser.add_argument('--modelfile', type=str, default='model_best.pth.tar',help='model filename')
 
@@ -167,18 +167,17 @@ def main():
         length=8    
     else:
         length=16
-     
-    step = int(length/2) 
+
+    print("arch = {}, length = {} ".format(args.arch, length)) 
 
     modelLocation="./checkpoint/"+args.dataset+"_"+args.arch+"_split"+str(args.split)  #  '_2021_01_07_18_27_43'
-
     model_path = os.path.join('../BERT/',modelLocation,args.modelfile)
-
     print("model_path = {}".format(model_path)) 
 
     if not os.path.exists(model_path):
         model_path = os.path.join(modelLocation,'model_best.pth.tar') 
         print("model_path = {}".format(model_path)) 
+        input("check model path") 
 
 
     dataset = args.dataset_root 
@@ -186,13 +185,10 @@ def main():
 
     val_setting_file = "%s_rgb_split%d.txt" % (args.subset, args.split)
     val_split_file = os.path.join(args.settings, args.dataset, val_setting_file)
-
     print("val_split_file = {}".format(val_split_file)) 
 
     if not os.path.exists(val_split_file):
         print("No split file exists in %s directory. Preprocess the dataset first" % (args.settings))
-
-
 
     
     start_frame = 0
@@ -229,8 +225,8 @@ def main():
     width = height = int(input_size*1.25)  # 1.25    
     print("scale= {}, input_size = {}, width = {}, height = {}".format(scale,input_size,width,height)) 
   
-    clip_mean = [0.43216, 0.394666, 0.37645] 
-    clip_std = [0.22803, 0.22145, 0.216989] 
+    clip_mean = [0.43216, 0.394666, 0.37645]  
+    clip_std = [0.22803, 0.22145, 0.216989]  
 
     normalize = video_transforms.Normalize(mean=clip_mean,
                                 std=clip_std)
@@ -257,7 +253,7 @@ def main():
 
     #result_list = []
 
-    output_path = './features_{}_{}'.format(args.subset,args.desc)
+    output_path = './features_{}_{}_{}'.format(args.modelfile,args.split,args.subset)
 
     if not os.path.exists(output_path):
         os.makedirs(output_path)
@@ -268,6 +264,7 @@ def main():
         
         Predictions = dict() 
 
+        count = 0    
         for line in tqdm(val_list):
             # line_info = line.split(" ")
             # clip_path = os.path.join(data_dir,line['id'])
@@ -295,12 +292,17 @@ def main():
             first_slice = int(line.split()[2]) 
             last_slice = int(line.split()[3]) 
 
-            print(img_dir,mask_dir,img_path,first_slice,last_slice) 
+            #print(img_dir,mask_dir,img_path,first_slice,last_slice) 
 
             slices_all = [] 
             for s in range(first_slice,last_slice+1):
                 slices_all.append("{}.jpg".format(s))     
    
+
+            slices_to_process, num_sets = SymmetricalSequentialResampler(slices_all,length)
+ 
+            '''
+
             #print("slices_all = {}".format(slices_all))  
            
             slices_num = len(slices_all) 
@@ -311,6 +313,9 @@ def main():
             slices_total = []        
             slices_to_process = dict()  
             i = 0 
+            num_sets = []
+ 
+            count_sets = 0 
             for i in range(interval): 
                 #print("i = {}, interval = {}".format(i,interval))                
                 slices = SymmetricalResampler.resample(slices_all, length, i-interval+1)
@@ -318,27 +323,30 @@ def main():
                 slices_total.extend(slices)
                 #print("i = {}, len= {}, slices = {}".format(i,slices_len,slices))  
                 slices_to_process[i] = slices 
-                print(i)
-                print(slices_to_process[i])
-                        
+                #print(i)
+                #print(slices_to_process[i])
+                count_sets +=1 
+            num_sets.append(count_sets)  
+                                    
             if slices_num - len(slices_total) > 0:  
                 i = interval
                 slices_remain = set(slices_all) - set(slices_total)
                 slices_remain = list(slices_remain) 
                 slices_remain.sort(key=lambda x: int(x.split('.')[0])) 
                 slices_to_process[i] = SymmetricalResampler.resample(slices_remain, length) 
-                print(i)
-                print(slices_to_process[i])     
-
+                #print(i)
+                #print(slices_to_process[i]) 
+                count_sets +=1 
+            num_sets.append(count_sets) 
+            
             #06/26 added sequential slices 
             if slices_num > length: 
                 i +=1
-
                 if slices_num == length * interval:  
                     avg_len = int(slices_num/interval)
                 else: 
                     avg_len = int(slices_num // (interval+1))
-                print(slices_len, interval,avg_len) 
+                #print(slices_len, interval,avg_len) 
                 slices_total = []   
                 slices_selected = [] 
                 for j in range(interval):
@@ -346,8 +354,10 @@ def main():
                     slices_selected = SymmetricalResampler.resample(slices_selected, length)  
                     slices_to_process[i+j] = slices_selected
                     slices_total.extend(slices_selected)
-                    print(i+j)
-                    print(slices_to_process[i+j]) 
+                    #print(i+j)
+                    #print(slices_to_process[i+j]) 
+                    count_sets +=1 
+                num_sets.append(count_sets)  
 
                 if slices_num - len(slices_total) > 0: 
                     j +=1 
@@ -355,11 +365,14 @@ def main():
                     slices_remain = list(slices_remain) 
                     slices_remain.sort(key=lambda x: int(x.split('.')[0])) 
                     slices_to_process[i+j] = SymmetricalResampler.resample(slices_remain, length)   
-                    print(i+j) 
-                    print(slices_to_process[i+j]) 
+                    #print(i+j) 
+                    #print(slices_to_process[i+j]) 
+                    count_sets +=1 
+                num_sets.append(count_sets)  
 
             #print(slices_to_process)  
             #input("dbg")    
+            ''' 
 
             features = [] 
             preds = [] 
@@ -374,41 +387,29 @@ def main():
                 
                 for s in slices: 
                     img_file  = os.path.join(img_path,s) 
-                    mask_file = os.path.join(mask_path,s+'_refined.jpg') 
+                    mask_file = os.path.join(mask_path,s +'_refined.jpg') 
 
                     #print(img_file,mask_file) 
 
                     img  = cv2.imread(img_file,cv2.IMREAD_GRAYSCALE) 
-                    mask = cv2.imread(mask_file,cv2.IMREAD_GRAYSCALE) 
-
+                    mask = cv2.imread(mask_file,cv2.IMREAD_GRAYSCALE)                     
 
                     img_mask = img.copy() 
                     black_ind = mask ==0 
                     img_mask[black_ind] = 0 
                      
                     img_merged = cv2.merge([img,mask,img_mask])
-                    img_merged = cv2.resize(img_merged, (height,width), cv2.INTER_LINEAR)
-
+                    img_merged_resized = cv2.resize(img_merged, (height,width), cv2.INTER_LINEAR)
                     #img_mask = cv2.resize(img_mask, (height,width), cv2.INTER_LINEAR)
                     #img_merged = cv2.cvtColor(img_mask,cv2.COLOR_GRAY2RGB) # cv2                     
-
-                    '''  #will check later 
-                    th, tw = input_size
-                    x1 = int(round((width - tw) / 2.))
-                    y1 = int(round((height - th) / 2.))
-                    img_merged = img_merged[y1:y1+th, x1:x1+tw, :]
-                    '''
- 
-                    imageList.append(img_merged) #CenterCrop 
+                    imageList.append(img_merged_resized) #CenterCrop 
 
 
                 rgb_list=[] 
                 for ind in range(len(imageList)):   
                     cur_img = imageList[ind].copy() 
                     cur_img_tensor = val_transform(cur_img)
-
                     rgb_list.append(np.expand_dims(cur_img_tensor.numpy(), 0))
-
                        
                 input_data=np.concatenate(rgb_list,axis=0) 
                 #print("input_data.shape = {}".format(input_data)) 
@@ -423,11 +424,11 @@ def main():
 
                     _, pred = output.topk(1, 1, True, True)
                     pred = pred.cpu().numpy()[0][0]
-                    preds.append(pred) 
-
-                    #features.append(F.normalize(embedding, p=2, dim=1).data)
+                    output2 = output.data.cpu().numpy()[0]
+                    preds.append((pred,output2)) 
+                  
                     embedding = embedding.cpu().numpy().squeeze(axis=0)  
-                    features.append(embedding)                   
+                    features.append(embedding) 
 
                 if debug: 
                     print("segment_index = {}, segment_s = {}, clip_len = {}".format(segment_index, segment_s, clip_len)) 
@@ -441,19 +442,23 @@ def main():
                 
             with open(feature_file, 'wb') as pk_file:
                 print("saving feature {}".format(feature_file)) 
-                pickle.dump(features_final, pk_file)
+                pickle.dump([features_final,num_sets,slices_to_process], pk_file)
+
+            count +=1 
+
+            #if count>=1:
+            #    break 
     
-        fp = open("{}_predictions.txt".format(args.subset),'w') 
-        for fn in Predictions:
-            preds = Predictions[fn] 
-            if "no-covid" in fn:
+        fp = open("{}_emdedding_results.txt".format(args.subset),'w') 
+        for key in Predictions:
+            preds = Predictions[key] 
+            if "non-covid" in key:
                 true = 1
             else:
                 true = 0 
-
-            fp.write("{} {} ".format(fn,true))
+            fp.write("{},{}".format(key,true))
             for p in preds:
-                fp.write("{} ".format(p))
+                fp.write(",{},{},{}".format(p[0],p[1][0],p[1][1]))
             fp.write("\n")
         fp.close()  
 

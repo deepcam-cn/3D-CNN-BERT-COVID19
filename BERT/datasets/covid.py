@@ -6,11 +6,12 @@ import random
 import numpy as np
 import cv2
 from PIL import Image
+import random
 
-from .utils import RandomResampler, SymmetricalResampler
+from .utils import RandomResampler, SymmetricalResampler, SymmetricalSequentialResampler
 
 cv2_loader = True 
-cv2.setNumThreads(0) #this solve the problem that cv2 freezes when resize is used 
+cv2.setNumThreads(0) #fix the opencv resize stuck issue 
 
 
 def pil_loader(root,path,size):
@@ -145,14 +146,15 @@ def cv2_loader2(root,path,size,is_color,bbox):
     ''' 
 
     img_merged = cv2.merge([img,mask,img_mask])
+
     #06/23 evening 11:17 added 
-    img_merged = img_merged[ymin:ymax,xmin:xmax,:] 
+    #img_merged = img_merged[ymin:ymax,xmin:xmax,:] 
+
     img_merged = cv2.resize(img_merged, size, interpolation)
 
     #img_merged = cv2.cvtColor(img,cv2.COLOR_GRAY2RGB) # cv2.COLOR_BGR2RGB)
 
     return img_merged 
-
 
 def find_classes(dir):
 
@@ -259,7 +261,7 @@ def ReadSegmentRGBResample(root, path, offsets, new_height, new_width, new_lengt
     #print("sampled_list.len = {}, shape = {}".format(len(sampled_list),sampled_list[0].shape)) 
     clip_input = np.concatenate(sampled_list, axis=2)
     if debug: 
-        print("clip_input.shape = {}".format(clip_input.shape)) 
+        print("clip_input.shape = {}".format(clip_input.shape))        
 
     #clip_input = Image.fromarray(clip_input)  
 
@@ -292,11 +294,19 @@ def ReadSegmentRGBMaskResample(root, path, offsets, new_height, new_width, new_l
 
     if debug:
         print("slices_all = {}".format(slices_all))
-
+     
     if is_train:
         slices = RandomResampler.resample(slices_all, new_length)
     else:
         slices = SymmetricalResampler.resample(slices_all, new_length)
+
+    '''
+    slices_selects, num_sets = SymmetricalSequentialResampler(slices_all, new_length)
+    #print("slices_selects = {}".format(slices_selects))
+    select = random.randint(0, len(slices_selects)-1)
+    slices = slices_selects[select]            
+    #print("seleced slices = {}".format(slices)) 
+    ''' 
 
     if debug: 
         print("is_train = {}, slices = {}".format(is_train,slices)) 

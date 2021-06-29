@@ -143,3 +143,94 @@ class SymmetricalResampler(Resampler):
         for idx in sorted(add_idxs):
             tmp.append(slices[idx])
         return tmp
+
+
+def SymmetricalSequentialResampler(slices_all, length, center=True):
+
+    #print("slices_all = {}".format(slices_all))   
+    slices_num = len(slices_all) 
+    interval = int(slices_num // length)
+    #print(len(slices_all),interval) 
+
+    slices_len = 0  
+    slices_total = []        
+    slices_to_process = dict()  
+    i = 0 
+    num_sets = []
+ 
+    debug = False
+ 
+    count_sets = 0 
+    for i in range(interval): 
+        #print("i = {}, interval = {}".format(i,interval))                
+        slices = SymmetricalResampler.resample(slices_all, length, i-interval+1)
+        slices_len += len(slices)
+        slices_total.extend(slices)
+        #print("i = {}, len= {}, slices = {}".format(i,slices_len,slices))  
+        slices_to_process[count_sets] = slices 
+        if debug: 
+            print("Type 1.1, count_sets = {}, sets = {}".format(count_sets,slices))
+        count_sets +=1 
+    num_sets.append(count_sets)  
+                                   
+    if slices_num - len(slices_total) > 0 and interval==0:  
+        i = interval
+        slices_remain = set(slices_all) - set(slices_total)
+        slices_remain = list(slices_remain) 
+        slices_remain.sort(key=lambda x: int(x.split('.')[0])) 
+        slices = SymmetricalResampler.resample(slices_remain, length) 
+        slices_to_process[count_sets] = slices
+        if debug: 
+            print("Type 1.2, count_sets = {}, sets = {}".format(count_sets,slices))
+        count_sets +=1 
+    num_sets.append(count_sets) 
+            
+    #06/26 added sequential slices 
+
+    #get one set at the center 
+    if slices_num > length and center:  
+        offset = (slices_num - length)//2 
+        slices = slices_all[offset:offset+length]
+        slices_to_process[count_sets] = slices
+        if debug: 
+            print("Type 2.1, count_sets = {}, sets = {}".format(count_sets,slices))
+
+        count_sets +=1 
+        num_sets.append(count_sets)  
+
+    if slices_num > length and not center: 
+        i +=1
+        if slices_num == length * interval:  
+            avg_len = int(slices_num/interval)
+        else: 
+            avg_len = int(slices_num // (interval+1))
+        #print(slices_len, interval,avg_len) 
+        slices_total = []   
+        for j in range(interval):
+            slices = slices_all[j*avg_len:(j+1)*avg_len]       
+            slices = SymmetricalResampler.resample(slices, length)  
+            slices_to_process[count_sets] = slices
+            slices_total.extend(slices)
+            if debug: 
+                print("Type 3.1, count_sets = {}, sets = {}".format(count_sets,slices))
+            count_sets +=1 
+        num_sets.append(count_sets)  
+
+        if slices_num - len(slices_total) > 0: 
+            j +=1 
+            slices_remain = set(slices_all) - set(slices_total)
+            slices_remain = list(slices_remain) 
+            slices_remain.sort(key=lambda x: int(x.split('.')[0])) 
+            slices = SymmetricalResampler.resample(slices_remain, length)   
+            slices_to_process[count_sets] = slices
+            if debug: 
+                print("Type 3.2, count_sets = {}, sets = {}".format(count_sets,slices))
+            count_sets +=1 
+        num_sets.append(count_sets)  
+
+        #print(slices_to_process)  
+        #input("dbg")    
+
+    return slices_to_process, num_sets 
+
+

@@ -13,7 +13,7 @@ import shutil
 import numpy as np
 
 os.environ["CUDA_DEVICE_ORDER"]="PCI_BUS_ID"
-os.environ["CUDA_VISIBLE_DEVICES"]="0,1,2,3"
+os.environ["CUDA_VISIBLE_DEVICES"]="1,2,3"
 
 
 import torch
@@ -90,11 +90,11 @@ parser.add_argument('-e', '--evaluate', dest='evaluate', action='store_true',
                     help='evaluate model on validation set')
 parser.add_argument('-c', '--continue', dest='contine', action='store_true',
                     help='evaluate model on validation set')
-
-parser.add_argument('-t', '--test', dest='test', action='store_true',
+parser.add_argument('--test', dest='test', action='store_true',
                     help='evaluate model on test set')
 
-
+parser.add_argument('--modelfile', default='model_best.pth.tar', help='modelfile name') 
+ 
 best_prec1 = 0
 best_loss = 30
 warmUpEpoch=5
@@ -131,7 +131,7 @@ def main():
     #height = int(256 * scale)
     #for covid
     
-    width = height = int(input_size*1.0)  # 1.25    
+    width = height = int(input_size*1.25)  # 1.25    
     print("scale= {}, input_size = {}, width = {}, height = {}".format(scale,input_size,width,height)) 
 
     
@@ -237,7 +237,6 @@ def main():
         elif "r2plus1d" in args.arch:
             clip_mean = [0.43216, 0.394666, 0.37645] * args.num_seg * length
             clip_std = [0.22803, 0.22145, 0.216989] * args.num_seg * length 
-
             #clip_mean = [0.40, 0.50, 0.1] * args.num_seg * length
             #clip_std = [0.30, 0.30, 0.16] * args.num_seg * length 
 
@@ -280,7 +279,6 @@ def main():
 
     #print("clip_mean = {}".format(clip_mean)) 
     #print("clip_std = {}".format(clip_std)) 
-    #scale_ratios = [1.0]
     
     normalize = video_transforms.Normalize(mean=clip_mean,
                                            std=clip_std)
@@ -288,7 +286,7 @@ def main():
     if "3D" in args.arch and not ('I3D' in args.arch):
         
         train_transform = video_transforms.Compose([                
-                video_transforms.RandomTransforms(ANGLE_R=15, TRANS_R=0.1,SCALE_R=0.2, SHEAR_R=10,BRIGHT_R=0.5, CONTRAST_R=0.3), 
+                #video_transforms.RandomTransforms(ANGLE_R=15, TRANS_R=0.1,SCALE_R=0.2, SHEAR_R=10,BRIGHT_R=0.5, CONTRAST_R=0.3), 
                 video_transforms.MultiScaleCrop((input_size, input_size), scale_ratios),                 
                 video_transforms.RandomHorizontalFlip(),
                 video_transforms.ToTensor2(),
@@ -322,14 +320,14 @@ def main():
 
         train_transform = video_transforms.Compose([                
                 video_transforms.RandomTransforms(ANGLE_R=15, TRANS_R=0.1,SCALE_R=0.2, SHEAR_R=10,BRIGHT_R=0.5, CONTRAST_R=0.3), 
-                #video_transforms.MultiScaleCrop((input_size, input_size), scale_ratios),                 
+                video_transforms.MultiScaleCrop((input_size, input_size), scale_ratios),                 
                 video_transforms.RandomHorizontalFlip(),
                 video_transforms.ToTensor(),
                 normalize,
             ])
     
         val_transform = video_transforms.Compose([
-                #video_transforms.CenterCrop((input_size)),
+                video_transforms.CenterCrop((input_size)),
                 video_transforms.ToTensor(),
                 normalize,
             ])
@@ -356,15 +354,18 @@ def main():
 
 
     # data loading
-    train_setting_file = "train_%s_split%d.txt" % (modality, args.split)
+    train_setting_file = "train_%s_split%d.txt" % (modality, args.split-1)
     train_split_file = os.path.join(args.settings, args.dataset, train_setting_file)
+    print("train_split_file = {}".format(train_split_file)) 
 
     if args.test: 
-        val_setting_file = "test_%s_split%d.txt" % (modality, args.split)
-    else:
-        val_setting_file = "val_%s_split%d.txt" % (modality, args.split)
-
+        val_setting_file = "test_%s_split%d.txt" % (modality, args.split-1)
+    else: 
+        val_setting_file = "val_%s_split%d.txt" % (modality, args.split-1)
     val_split_file = os.path.join(args.settings, args.dataset, val_setting_file)
+    print("val_split_file = {}".format(val_split_file)) 
+
+
     if not os.path.exists(train_split_file) or not os.path.exists(val_split_file):
         print("No split file exists in %s directory. Preprocess the dataset first" % (args.settings))
 
@@ -415,7 +416,6 @@ def main():
 #            break
 #        adjust_learning_rate(optimizer, epoch)
         prec1_train, prec3_train = train(train_loader, model, criterion,criterion2, optimizer, epoch,modality)
-
         # evaluate on validation set
         prec1 = 0.0
         lossClassification = 0
@@ -508,7 +508,12 @@ def build_model():
 
 def build_model_validate():
     modelLocation="./checkpoint/"+args.dataset+"_"+args.arch+"_split"+str(args.split)
-    model_path = os.path.join(modelLocation,'model_best.pth.tar') 
+
+    model_path =  os.path.join(modelLocation,args.modelfile)
+    if not os.path.exists(model_path):
+        model_path = os.path.join(modelLocation,'model_best.pth.tar') 
+    print("Evaluation model_path = {}".format(model_path)) 
+
     params = torch.load(model_path)
     print(modelLocation)
     if args.dataset=='ucf101':
@@ -529,9 +534,10 @@ def build_model_validate():
 
 def build_model_continue():
     modelLocation="./checkpoint/"+args.dataset+"_"+args.arch+"_split"+str(args.split)
-    model_path = os.path.join(modelLocation,'model_best.pth.tar') 
-
-    print("model_path = {}".format(model_path)) 
+    model_path =  os.path.join(modelLocation,args.modelfile)
+    if not os.path.exists(model_path):
+        model_path = os.path.join(modelLocation,'model_best.pth.tar') 
+    print("Continue model_path = {}".format(model_path)) 
 
     params = torch.load(model_path)
     print(modelLocation)
@@ -590,6 +596,7 @@ def train(train_loader, model, criterion, criterion2, optimizer, epoch,modality)
         else:
             inputs = inputs.cuda()
         targets = targets.cuda()
+
 
         #print("inputs shape = ", inputs.shape) 
  
@@ -683,8 +690,11 @@ def validate(val_loader, model, criterion,criterion2,modality):
     else:
         print_output = False 
    
-    if print_output: 
-        fp = open("validation_results.txt","w") 
+    if print_output:
+        if args.test: 
+            fp = open("test_results_split{}.txt".format(args.split),"w") 
+        else:
+            fp = open("validate_results_split{}.txt".format(args.split),"w") 
 
     with torch.no_grad():
         for i, (inputs, targets, scans, slices) in enumerate(val_loader):
@@ -712,7 +722,7 @@ def validate(val_loader, model, criterion,criterion2,modality):
             lossClassification = criterion(output, targets)
     
             # measure accuracy and record loss
-            #print("i = {}, scans = {}, slices = {}, output = {}, targets = {}".format(i,scans,slices,output.data,targets))    
+            #print("i = {}, scans = {}, slices = {}, output = {}, targets = {}".format(i,scans,slices,output,targets))    
              
             prec1, prec3 = accuracy(output.data, targets, topk=(1,2))
 
@@ -725,10 +735,17 @@ def validate(val_loader, model, criterion,criterion2,modality):
 
                 pred2 = pred.cpu().numpy()[0]
                 target2 = target2.cpu().numpy()[0]
-                output2 = output.data.cpu().numpy()[0]
+                output2 = output.data.cpu().numpy()
+
+                #print(len(scans)) 
+                #print(pred2.shape) 
+                #print(target2.shape) 
+                #print(output2.shape) 
 
                 for outind in range(len(scans)):
-                    fp.write("{} {} {} {} {}\n".format(scans[outind],pred2[outind],target2[outind], output2[0], output2[1]) )
+                    fp.write("{},{},{},{:4.3f},{:4.3f}\n".format(scans[outind], target2[outind], pred2[outind], output2[outind][0], output2[outind][1]) )
+
+                #input('dbg') 
             
             lossesClassification.update(lossClassification.data.item(), output.size(0))
             
@@ -738,8 +755,7 @@ def validate(val_loader, model, criterion,criterion2,modality):
             # measure elapsed time
             batch_time.update(time.time() - end)
             end = time.time()
-    
-    
+        
         print(' * * Prec@1 {top1.avg:.3f} Prec@3 {top3.avg:.3f} Classification Loss {lossClassification.avg:.4f}\n' 
               .format(top1=top1, top3=top3, lossClassification=lossesClassification))
 

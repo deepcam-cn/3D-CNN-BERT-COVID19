@@ -1,6 +1,4 @@
-# 3D-CNN-BERT-COVID19
-
-Implementation of "A 3D CNN Network with BERT For Automatic COVID-19 Diagnosis From CT-Scan Images" for 4th place solution for the ICCV-2021 MIA COV19D Competition. 
+# 3D-CNN-BERT-COVID19: The 4th-place solution for the ICCV-2021 MIA COV19D Competition. 
 
 There are four parts in this project
 ## Preprocess
